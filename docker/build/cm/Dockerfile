@@ -2,9 +2,11 @@
 
 ARG BASE_IMAGE
 ARG TOOLING_IMAGE
+ARG MANAGEMENT_SERVICES_IMAGE
 ARG SOLUTION_IMAGE
 
 FROM ${SOLUTION_IMAGE} as solution
+FROM ${MANAGEMENT_SERVICES_IMAGE} AS management_services
 FROM ${TOOLING_IMAGE} as tooling
 FROM ${BASE_IMAGE}
 
@@ -14,6 +16,9 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 COPY --from=tooling \tools\ \tools\
 
 WORKDIR C:\inetpub\wwwroot
+
+# Copy the Sitecore Management Services Module
+COPY --from=management_services C:\module\cm\content C:\inetpub\wwwroot
 
 # Copy solution website files
 COPY --from=solution \artifacts\website\ .\
