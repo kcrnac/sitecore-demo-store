@@ -67,9 +67,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\json.json" />
+    <Content Include="App_Config\Include\Project\Project.Core.config" />
     <None Include="Directory.Build.props" />
     <None Include="Sitecore.Demo.Store.Project.Core.wpp.targets" />
+    <Content Include="Views\Project.Core\Default.cshtml" />
     <None Include="web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
