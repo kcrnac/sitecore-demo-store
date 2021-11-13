@@ -70,7 +70,7 @@ services:
       - ${LOCAL_DATA_PATH}\cd:C:\inetpub\wwwroot\App_Data\logs
       - ${HOST_LICENSE_FOLDER}:C:\license
     environment:
-      SITE_HOST: ${SITE_HOST}
+      SITE_HOST: "${CD_HOST}|${SITE_HOST}"
       SITECORE_LICENSE_LOCATION: C:\license\license.xml
       ## Development Environment Optimizations
       SITECORE_DEVELOPMENT_PATCHES: DevEnvOn,CustomErrorsOff,DebugOn,DiagnosticsOff,InitMessagesOff
@@ -94,6 +94,7 @@ services:
       - ${LOCAL_DATA_PATH}\cm:C:\inetpub\wwwroot\App_Data\logs
       - ${HOST_LICENSE_FOLDER}:C:\license
     environment:
+      SITE_HOST: ${CM_HOST}
       SITECORE_LICENSE_LOCATION: C:\license\license.xml
       ## Development Environment Optimizations
       SITECORE_DEVELOPMENT_PATCHES: DevEnvOn,CustomErrorsOff,DebugOn,DiagnosticsOff,InitMessagesOff
